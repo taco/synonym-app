@@ -2,10 +2,17 @@ import {
     START_EDIT,
     START_CREATE,
     UPDATE_KEY,
-    UPDATE_VALUES
+    UPDATE_VALUES,
+    CANCEL
 } from '../constants/actionTypes';
 
 import { addAsync, updateAsync } from './pairs';
+
+export const cancel = () => {
+    return {
+        type: CANCEL
+    };
+};
 
 export const edit = (value, matches) => {
     return {

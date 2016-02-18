@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { loadAsync } from '../../actions/pairs';
+import { cancel } from '../../actions/form';
 
 import { Button } from '../Button';
 
@@ -22,7 +22,7 @@ export const handleClick = (store,event) => {
     event.preventDefault();
 
     store.dispatch(
-        loadAsync()
+        cancel()
     );
 };
 

@@ -5,7 +5,8 @@ import {
     START_EDIT,
     START_CREATE,
     ADD_PAIR,
-    UPDATE_PAIR
+    UPDATE_PAIR,
+    CANCEL
 } from '../constants/actionTypes';
 
 const initialState = fromJS({
@@ -15,6 +16,7 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
 
+    case CANCEL:
     case LOAD_PAIRS:
     case ADD_PAIR:
     case UPDATE_PAIR:
