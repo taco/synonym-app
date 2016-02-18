@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
+import { PAIRS_REDUCER } from '../constants';
 import pairs from './pairs';
 
 export default combineReducers({
-    pairs
+    [PAIRS_REDUCER]: pairs
 });

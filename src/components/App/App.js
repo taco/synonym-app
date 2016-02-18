@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { Grid } from '../Grid';
 
-const App = props => {
+const App = ({ store }) => {
     return (
-        <div>
-            { 'Howdy' }
-        </div>
+        <Grid { ...{ store } } />
         );
 }
+
+App.PropTypes = {
+    store: PropTypes.object.isRequired
+};
 
 export default App;

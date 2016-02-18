@@ -1,0 +1,36 @@
+import React, { PropTypes } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { connect } from 'react-redux';
+import { PAIRS_REDUCER } from '../../constants';
+
+import Header from './Header';
+import Rows from './Rows';
+
+const Grid = ({ pairs }) => {
+
+    const valueTitle = 'Key';
+    const matchTitle = 'Synonyms';
+
+    return (
+        <table>
+            <Header { ...{ valueTitle, matchTitle } } />
+            <Rows { ...{ pairs } } />
+        </table>
+        );
+};
+
+Grid.propTypes = {
+    pairs: ImmutablePropTypes.mapOf(
+        ImmutablePropTypes.listOf(
+            PropTypes.string.isRequired
+        ).isRequired
+    ).isRequired
+};
+
+export const mapStateToProps = state => {
+    return {
+        pairs: state[PAIRS_REDUCER]
+    };
+};
+
+export default connect(mapStateToProps)(Grid);

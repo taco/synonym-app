@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
-import Provider from './components/Provider/Provider';
+import { Provider } from './components/Provider';
+import './style/main.styl';
 
 const APPLICATION_MOUNT = 'application-mount';
 
