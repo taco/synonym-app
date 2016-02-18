@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
-import { create } from '../../actions/form';
+import { loadAsync } from '../../actions/pairs';
 
 import { Button } from '../Button';
 
-const Create = ({ store }) => {
+const Cancel = ({ store }) => {
 
-    const text = 'Create';
-    const classType = 'primary';
+    const text = 'Cancel';
+    const classType = 'link';
     const onClick = handleClick.bind(null, store);
 
     return (
@@ -14,7 +14,7 @@ const Create = ({ store }) => {
         );
 };
 
-Create.propTypes = {
+Cancel.propTypes = {
     store: PropTypes.object.isRequired
 };
 
@@ -22,8 +22,8 @@ export const handleClick = (store,event) => {
     event.preventDefault();
 
     store.dispatch(
-        create()
+        loadAsync()
     );
 };
 
-export default Create;
+export default Cancel;

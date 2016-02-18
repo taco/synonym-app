@@ -6,18 +6,24 @@ import Edit from './Edit';
 
 const Row = ({ store, value, matches }) => {
 
-    const matchOutput = matches.join(', ');
+    const style = { margin: '5px' };
+
+    const matchOutput = matches.map(
+        (text, i) => <kbd style={ style } key={ i }>{ text }</kbd>
+    );
 
     return (
         <tr>
             <td>
-                { value }
+                <code>
+                    { value }
+                </code>
             </td>
             <td>
                 { matchOutput }
             </td>
             <td>
-                <Edit { ...{ store, value } }/>
+                <Edit { ...{ store, value, matches } }/>
                 <Delete { ...{ store, value } }/>
             </td>
         </tr>
