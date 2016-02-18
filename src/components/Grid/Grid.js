@@ -10,9 +10,10 @@ const Grid = ({ pairs }) => {
 
     const valueTitle = 'Key';
     const matchTitle = 'Synonyms';
+    const className = 'table table-striped table-bordered table-hover';
 
     return (
-        <table>
+        <table { ...{ className } } >
             <Header { ...{ valueTitle, matchTitle } } />
             <Rows { ...{ pairs } } />
         </table>
@@ -34,3 +35,4 @@ export const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Grid);
+

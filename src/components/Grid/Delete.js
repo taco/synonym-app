@@ -3,10 +3,12 @@ import React, { PropTypes } from 'react';
 const Delete = ({ value }) => {
 
     const text = 'Remove';
+    const type = 'button';
+    const className = 'btn btn-link';
     const onClick = handleClick.bind(null, value);
 
     return (
-        <button { ...{ onClick } }>
+        <button { ...{ type, className, onClick } }>
             { text }
         </button>
         );
