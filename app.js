@@ -1,5 +1,4 @@
 /* eslint-disable */
-require('dotenv').config({ silent: true });
 
 const express = require('express');
 const path = require('path');
@@ -9,13 +8,11 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-var scriptsUrl = 'http://localhost:8080/lib/bundle.js';
-var port = 3000;
+const scriptsUrl = process.env.NODE_ENV === 'production'
+                    ? '/bundle.js'
+                    : 'http://localhost:8080/lib/bundle.js';
 
-if (process.env.NODE_ENV === 'production') {
-    scriptsUrl = '/bundle.js';
-    port = 80;
-}
+const port = process.env.PORT || 3000;
 
 app.get('/', function(req, res) {
 
@@ -30,5 +27,5 @@ app.get('/bundle.js', function (req, res) {
 });
 
 app.listen(port, function() {
-    console.log('Example app listening on port 3000!');
+    console.log('Example app listening on port ' + port);
 });

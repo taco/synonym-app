@@ -4,7 +4,7 @@
   "description": "Mozu Search Synonym UI",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nf start",
     "hot": "webpack-dev-server --hot --inline --pretty --config webpack/webpack.config.hot.js",
     "build": "webpack --pretty --config webpack/webpack.config.prod.js",
     "lint": "eslint src/ || true"
@@ -15,8 +15,8 @@
   },
   "author": "taco",
   "dependencies": {
-    "dotenv": "^2.0.0",
     "express": "^4.13.4",
+    "foreman": "^1.4.1",
     "immutable": "^3.7.6",
     "jade": "^1.11.0",
     "react": "^0.14.6",
