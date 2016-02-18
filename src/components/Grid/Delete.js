@@ -1,16 +1,15 @@
 import React, { PropTypes } from 'react';
 
+import { Button } from '../Button';
+
 const Delete = ({ value }) => {
 
     const text = 'Remove';
-    const type = 'button';
-    const className = 'btn btn-link';
+    const classType = 'link';
     const onClick = handleClick.bind(null, value);
 
     return (
-        <button { ...{ type, className, onClick } }>
-            { text }
-        </button>
+        <Button { ...{ text, classType, onClick } } />
         );
 };
 

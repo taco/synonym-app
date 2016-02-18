@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const Header = () => {
-    const title = 'Search Synonyms';
+    const title = 'Search Cinnamons';
 
     return (
         <h1>
