@@ -3,9 +3,16 @@ import { Grid } from '../Grid';
 
 import Header from './Header';
 import Create from './Create';
+import Load from './Load';
+
+import { store } from '../../store';
+import { loadAsync } from '../../actions/pairs';
+
+store.dispatch(
+    loadAsync()
+);
 
 const App = ({ store }) => {
-
 
     return (
         <div className="container">
@@ -15,6 +22,8 @@ const App = ({ store }) => {
             </div>
             <div>
                 <Create />
+                { ' ' }
+                <Load store={ store } />
             </div>
             <p className="text-right">
                 { 'Source: ' }
@@ -26,7 +35,7 @@ const App = ({ store }) => {
         );
 }
 
-App.PropTypes = {
+App.propTypes = {
     store: PropTypes.object.isRequired
 };
 

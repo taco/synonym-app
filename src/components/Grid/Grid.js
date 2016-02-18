@@ -6,7 +6,7 @@ import { PAIRS_REDUCER } from '../../constants';
 import Header from './Header';
 import Rows from './Rows';
 
-const Grid = ({ pairs }) => {
+const Grid = ({ store, pairs }) => {
 
     const valueTitle = 'Key';
     const matchTitle = 'Synonyms';
@@ -15,7 +15,7 @@ const Grid = ({ pairs }) => {
     return (
         <table { ...{ className } } >
             <Header { ...{ valueTitle, matchTitle } } />
-            <Rows { ...{ pairs } } />
+            <Rows { ...{ store, pairs } } />
         </table>
         );
 };
@@ -25,7 +25,8 @@ Grid.propTypes = {
         ImmutablePropTypes.listOf(
             PropTypes.string.isRequired
         ).isRequired
-    ).isRequired
+    ).isRequired,
+    store: PropTypes.object.isRequired
 };
 
 export const mapStateToProps = state => {

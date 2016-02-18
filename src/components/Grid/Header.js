@@ -4,13 +4,13 @@ const Header = ({ valueTitle, matchTitle }) => {
     return (
         <thead>
             <tr>
-                <th>
+                <th width="250px">
                     { valueTitle }
                 </th>
                 <th>
                     { matchTitle }
                 </th>
-                <th>
+                <th width="150px">
                     { 'Actions' }
                 </th>
             </tr>

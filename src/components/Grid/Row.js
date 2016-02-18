@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import Delete from './Delete';
 import Edit from './Edit';
 
-const Row = ({ value, matches }) => {
+const Row = ({ store, value, matches }) => {
 
     const matchOutput = matches.join(', ');
 
@@ -17,8 +17,8 @@ const Row = ({ value, matches }) => {
                 { matchOutput }
             </td>
             <td>
-                <Edit { ...{ value } }/>
-                <Delete { ...{ value } }/>
+                <Edit { ...{ store, value } }/>
+                <Delete { ...{ store, value } }/>
             </td>
         </tr>
         );
@@ -28,6 +28,7 @@ Row.propTypes = {
     matches: ImmutablePropTypes.listOf(
         PropTypes.string.isRequired
     ).isRequired,
+    store: PropTypes.object.isRequired,
     value: PropTypes.string.isRequired
 };
 
