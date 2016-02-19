@@ -58,6 +58,10 @@ app.put('/api/synonyms', function(req, res) {
         });
 });
 
+app.post('/api/start', function(req, res) {
+    res.redirect(301, '/');
+});
+
 app.listen(port, function() {
     console.log('Example app listening on port ' + port);
 });
