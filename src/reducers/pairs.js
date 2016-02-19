@@ -7,7 +7,7 @@ import {
     UPDATE_PAIR
 } from '../constants/actionTypes';
 
-const initialState = fromJS({});
+const initialState = fromJS([]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -16,23 +16,28 @@ export default (state = initialState, action) => {
         return fromJS(action.data);
 
     case REMOVE_PAIR:
-        return state.delete(action.value);
+        return state.delete(action.index);
 
     case UPDATE_PAIR:
-        state = state.delete(action.originalValue);
+        console.log('udpdate', action.index);
+        return state.set(action.index, fromJS({
+            key: action.value,
+            synonyms: matchesToArray(action.matches)
+        }));
 
     case ADD_PAIR:
-        return state.set(action.value, matchesToList(action.matches));
+        return state.push(fromJS({
+            key: action.value,
+            synonyms: matchesToArray(action.matches)
+        }));
 
     default:
         return state;
     }
 };
 
-export const matchesToList = matches => {
-    return fromJS(
-        matches.split(',')
+export const matchesToArray = matches => {
+    return matches.split(',')
             .map(w => w.trim())
-            .filter(w => !!w)
-    );
+            .filter(w => !!w);
 };

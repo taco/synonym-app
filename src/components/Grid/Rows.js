@@ -4,10 +4,12 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import Row from './Row';
 
 export const Rows = ({ store, pairs }) => {
-    const rows = pairs.map((matches, value) => {
-        const key = `row-${value}`;
+    const rows = pairs.map((pair, index) => {
+        const key = `row-${index}`;
+        const value = pair.get('key');
+        const matches = pair.get('synonyms');
         return (
-            <Row { ...{ store, matches, value, key } } />
+            <Row { ...{ store, matches, value, index, key } } />
             );
     }).toSeq();
 
@@ -19,10 +21,8 @@ export const Rows = ({ store, pairs }) => {
 };
 
 Rows.propTypes = {
-    pairs: ImmutablePropTypes.mapOf(
-        ImmutablePropTypes.listOf(
-            PropTypes.string.isRequired
-        ).isRequired
+    pairs: ImmutablePropTypes.listOf(
+        ImmutablePropTypes.map.isRequired
     ).isRequired,
     store: PropTypes.object.isRequired
 };

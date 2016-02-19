@@ -5,11 +5,16 @@ import {
     UPDATE_PAIR
 } from '../constants/actionTypes';
 
-const defaultData = {
-    sweater: ['cold', 'jacket'],
-    boots: ['tough', 'feet'],
-    words: ['some more', 'phrases', 'are here']
-};
+const defaultData = [{
+    key: 'sweather',
+    synonyms: ['cold', 'jacket']
+}, {
+    key: 'boots',
+    synonyms: ['tough', 'feet']
+}, {
+    key: 'words',
+    synonyms: ['some more', 'phrases', 'are here']
+}];
 
 const asyncDelay = 1;
 
@@ -28,18 +33,18 @@ export const load = data => {
     };
 };
 
-export const removeAsync = value => {
+export const removeAsync = index => {
     return dispatch => {
         setTimeout(() => {
-            dispatch(remove(value));
+            dispatch(remove(index));
         }, asyncDelay);
     };
 };
 
-export const remove = value => {
+export const remove = index => {
     return {
         type: REMOVE_PAIR,
-        value
+        index
     };
 };
 
@@ -59,18 +64,18 @@ export const add = (value, matches) => {
     };
 };
 
-export const updateAsync = (originalValue, value, matches) => {
+export const updateAsync = (index, value, matches) => {
     return dispatch => {
         setTimeout(() => {
-            dispatch(upate(originalValue, value, matches));
+            dispatch(upate(index, value, matches));
         }, asyncDelay);
     };
 };
 
-export const upate = (originalValue, value, matches) => {
+export const upate = (index, value, matches) => {
     return {
         type: UPDATE_PAIR,
-        originalValue,
+        index,
         value,
         matches
     };

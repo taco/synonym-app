@@ -14,9 +14,10 @@ export const cancel = () => {
     };
 };
 
-export const edit = (value, matches) => {
+export const edit = (index, value, matches) => {
     return {
         type: START_EDIT,
+        index,
         value,
         matches
     };
@@ -44,13 +45,13 @@ export const updateValues = value => {
 
 export const save = state => {
     return dispatch => {
-        const originalValue = state.get('originalKey');
+        const index = state.get('index');
         const value = state.get('key');
         const matches = state.get('values');
 
-        if (originalValue) {
+        if (typeof index === 'number') {
             dispatch(
-                updateAsync(originalValue, value, matches)
+                updateAsync(index, value, matches)
             );
         }
         else {

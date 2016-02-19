@@ -32,18 +32,32 @@ app.use('/css', express.static(path.join(__dirname, 'assets/css')));
 app.get('/api/synonyms', function(req, res) {
     api.get()
         .then(result => {
-            console.log('result', result);
+            console.log('result', JSON.stringify(result));
             res.json({
-                message: 'hello'
+                definitions: result.synonymDefinitions
             });
         })
         .catch(error => {
-            console.log('error', error);
             res.json({
+                definitions: []
+            });
+        });
+});
+
+app.put('/api/synonyms', function(req, res) {
+    api.update(req.body.definitions)
+        .then(result => {
+            res.json({
+                success: true
+            });
+        })
+        .catch(error => {
+            res.json({
+                success: false,
                 error: error
             });
         });
-})
+});
 
 app.listen(port, function() {
     console.log('Example app listening on port ' + port);

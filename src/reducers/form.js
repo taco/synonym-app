@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
     case START_EDIT:
         return fromJS({
             key: action.value,
-            originalKey: action.value,
+            index: action.index,
             values: action.matches.toJS().join(', ')
         });
 

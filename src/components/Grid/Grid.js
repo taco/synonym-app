@@ -21,10 +21,8 @@ const Grid = ({ store, pairs }) => {
 };
 
 Grid.propTypes = {
-    pairs: ImmutablePropTypes.mapOf(
-        ImmutablePropTypes.listOf(
-            PropTypes.string.isRequired
-        ).isRequired
+    pairs: ImmutablePropTypes.listOf(
+        ImmutablePropTypes.map.isRequired
     ).isRequired,
     store: PropTypes.object.isRequired
 };

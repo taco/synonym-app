@@ -24,7 +24,7 @@ const KeyField = ({ defaultValue, store }) => {
 };
 
 KeyField.propTypes = {
-    form: ImmutablePropTypes.map.isRequired,
+    defaultValue: PropTypes.string.isRequired,
     store: PropTypes.object.isRequired
 };
 

@@ -21,7 +21,7 @@ const ValuesField = ({ defaultValue, store }) => {
 };
 
 ValuesField.propTypes = {
-    form: ImmutablePropTypes.map.isRequired,
+    defaultValue: PropTypes.string.isRequired,
     store: PropTypes.object.isRequired
 };
 

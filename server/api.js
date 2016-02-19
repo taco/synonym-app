@@ -14,6 +14,17 @@ function get() {
     return client.getSynonymDefinitionCollection({});
 }
 
+function update(body) {
+    const payload = {
+        tenantId: process.env.TENANT,
+        siteId: process.env.SITE,
+        localCode: 'en-US',
+        synonymDefinitions: body
+    };
+    return client.updateSynonymDefinitionCollection(payload);
+}
+
 module.exports = {
-    get: get
+    get: get,
+    update: update
 };
