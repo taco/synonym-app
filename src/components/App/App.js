@@ -62,12 +62,6 @@ const App = ({ view, store }) => {
             <Header store={ store } />
             { content }
             { buttons }
-            <p className="text-right">
-                { 'Source: ' }
-                <a href="https://github.com/taco/synonym-app">
-                    { 'https://github.com/taco/synonym-app' }
-                </a>
-            </p>
         </div>
         );
 }

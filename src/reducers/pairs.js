@@ -40,7 +40,7 @@ export const getPair = (value, matches) => {
         unsaved: true
     };
 
-    if (value.trim()) {
+    if (value && value.trim()) {
         pair.key = value.trim();
     }
 

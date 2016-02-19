@@ -16,14 +16,22 @@ const Row = ({ store, pair, index }) => {
         (text, i) => <kbd style={ style } key={ i }>{ text }</kbd>
     );
 
-    const className = unsaved ? 'warning' : '';
+    const className = unsaved ? 'active' : '';
+
+    let code;
+
+    if (value) {
+        code = (
+            <code>
+                { value }
+            </code>
+        );
+    }
 
     return (
         <tr className={ className }>
             <td>
-                <code>
-                    { value }
-                </code>
+                { code }
             </td>
             <td>
                 { matchOutput }

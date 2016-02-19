@@ -5,7 +5,12 @@ import { FORM_REDUCER } from '../../constants';
 
 const ValuesField = ({ defaultValue, store }) => {
 
-    const onChange = handleChange.bind(null, store);
+    const textAreaProps = {
+        className: 'form-control',
+        defaultValue,
+        onChange: handleChange.bind(null, store),
+        placeholder: 'phrase one, phrase two, more, words'
+    };
 
     return (
         <div className="form-group">
@@ -13,7 +18,7 @@ const ValuesField = ({ defaultValue, store }) => {
                 { 'Synonyms' }
             </label>
             <textarea
-                { ...{ className: 'form-control', defaultValue, onChange } }
+                { ...textAreaProps }
             />
             <p className="help-block">
                 { 'Comma delimited phrases to match to key.' }

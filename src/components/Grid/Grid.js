@@ -8,9 +8,9 @@ import Rows from './Rows';
 
 const Grid = ({ store, pairs }) => {
 
-    const valueTitle = 'Key';
+    const valueTitle = 'Key Word';
     const matchTitle = 'Synonyms';
-    const className = 'table table-striped';
+    const className = 'table table-condensed';
 
     return (
         <table { ...{ className } } >

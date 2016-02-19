@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import Persist from './Persist';
 
 const Header = ({ store }) => {
-    const title = 'Search Cinnamons';
+    const title = 'Search Synonyms';
 
     return (
         <div>

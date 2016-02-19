@@ -9,6 +9,7 @@ const KeyField = ({ defaultValue, store }) => {
         className: 'form-control',
         defaultValue,
         onChange: handleChange.bind(null, store),
+        placeholder: 'Single phrase',
         type: 'text'
     };
 
