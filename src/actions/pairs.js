@@ -7,25 +7,13 @@ import {
     UPDATE_PAIR
 } from '../constants/actionTypes';
 
-const defaultData = [{
-    key: 'sweather',
-    synonyms: ['cold', 'jacket']
-}, {
-    key: 'boots',
-    synonyms: ['tough', 'feet']
-}, {
-    key: 'words',
-    synonyms: ['some more', 'phrases', 'are here']
-}];
-
 const asyncDelay = 1;
 
 export const loadAsync = () => {
     return dispatch => {
         GET()
             .then(result => {
-                console.log('result', result)
-                dispatch(load(result.definitions));
+                dispatch(load(result));
             })
             .catch(error => {
                 console.warn('failed to make API GET call', error);

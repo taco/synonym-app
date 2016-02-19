@@ -4,7 +4,7 @@
   "description": "Mozu Search Synonym UI",
   "main": "app.js",
   "scripts": {
-    "start": "nf start",
+    "start": "node app.js",
     "hot": "webpack-dev-server --hot --inline --pretty --config webpack/webpack.config.hot.js",
     "build": "webpack --pretty --config webpack/webpack.config.prod.js",
     "lint": "eslint src/ || true"
