@@ -58,7 +58,7 @@ app.put('/api/synonyms', function(req, res) {
         });
 });
 
-app.post('/api/start', function(req, res) {
+app.post('/', function(req, res) {
     res.redirect(301, '/');
 });
 
