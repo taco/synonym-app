@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { updateKey } from '../../actions/form';
 import { connect } from 'react-redux';
 import { FORM_REDUCER } from '../../constants';
@@ -16,9 +15,12 @@ const KeyField = ({ defaultValue, store }) => {
     return (
         <div className="form-group">
             <label>
-                { 'Key' }
+                { 'Key Word' }
             </label>
             <input { ...inputProps } />
+            <p className="help-block">
+                { 'Leave key blank synonym group binding.' }
+            </p>
         </div>
         );
 };

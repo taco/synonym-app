@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { updateValues } from '../../actions/form';
 import { connect } from 'react-redux';
 import { FORM_REDUCER } from '../../constants';
@@ -11,11 +10,14 @@ const ValuesField = ({ defaultValue, store }) => {
     return (
         <div className="form-group">
             <label>
-                { 'Values' }
+                { 'Synonyms' }
             </label>
             <textarea
                 { ...{ className: 'form-control', defaultValue, onChange } }
             />
+            <p className="help-block">
+                { 'Comma delimited phrases to match to key.' }
+            </p>
         </div>
         );
 };
