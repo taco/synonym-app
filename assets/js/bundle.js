@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "lib/";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -26467,7 +26467,7 @@
 
 	    var valueTitle = 'Key';
 	    var matchTitle = 'Synonyms';
-	    var className = 'table table-striped table-bordered table-hover';
+	    var className = 'table table-striped';
 
 	    return _react2.default.createElement(
 	        'table',
@@ -26964,7 +26964,7 @@
 
 
 	    var text = 'Edit';
-	    var classType = 'default';
+	    var classType = 'link';
 	    var onClick = handleClick.bind(null, { store: store, value: value, matches: matches });
 
 	    return _react2.default.createElement(_Button.Button, { text: text, classType: classType, onClick: onClick });
@@ -27117,7 +27117,7 @@
 
 
 	    var text = 'Create';
-	    var classType = 'primary';
+	    var classType = 'success';
 	    var onClick = handleClick.bind(null, store);
 
 	    return _react2.default.createElement(_Button.Button, { text: text, classType: classType, onClick: onClick });
@@ -27165,7 +27165,7 @@
 
 
 	    var text = 'Refresh';
-	    var classType = 'default';
+	    var classType = 'link';
 	    var onClick = handleClick.bind(null, store);
 
 	    return _react2.default.createElement(_Button.Button, { text: text, classType: classType, onClick: onClick });
@@ -27218,7 +27218,7 @@
 
 
 	    var text = 'Save';
-	    var classType = 'primary';
+	    var classType = 'success';
 	    var onClick = handleClick.bind(null, { form: form, store: store });
 
 	    return _react2.default.createElement(_Button.Button, { text: text, classType: classType, onClick: onClick });

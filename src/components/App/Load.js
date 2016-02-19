@@ -7,7 +7,7 @@ import { Button } from '../Button';
 const Load = ({ store }) => {
 
     const text = 'Refresh';
-    const classType = 'default';
+    const classType = 'link';
     const onClick = handleClick.bind(null, store);
 
     return (

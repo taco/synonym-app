@@ -6,9 +6,9 @@ module.exports = {
         './src/entry.js'
     ],
     output: {
-        path: __dirname + '/../lib/',
+        path: __dirname + '/../assets/js/',
         filename: 'bundle.js',
-        publicPath: 'lib/'
+        publicPath: '/'
     },
     target: 'web',
     node: {

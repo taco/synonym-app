@@ -31,7 +31,7 @@ module.exports = {
     ],
     output: {
         path: __dirname,
-        filename: 'lib/bundle.js',
+        filename: 'assets/js/bundle.js',
         sourceMapFilename: 'debugging/[file].map',
         publicPath: 'http://localhost:8080/'
     },

@@ -6,7 +6,7 @@ import { Button } from '../Button';
 const Create = ({ store }) => {
 
     const text = 'Create';
-    const classType = 'primary';
+    const classType = 'success';
     const onClick = handleClick.bind(null, store);
 
     return (

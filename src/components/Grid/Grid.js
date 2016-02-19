@@ -10,7 +10,7 @@ const Grid = ({ store, pairs }) => {
 
     const valueTitle = 'Key';
     const matchTitle = 'Synonyms';
-    const className = 'table table-striped table-bordered table-hover';
+    const className = 'table table-striped';
 
     return (
         <table { ...{ className } } >

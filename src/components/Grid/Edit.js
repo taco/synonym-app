@@ -7,7 +7,7 @@ import { Button } from '../Button';
 const Edit = ({ store, value, matches }) => {
 
     const text = 'Edit';
-    const classType = 'default';
+    const classType = 'link';
     const onClick = handleClick.bind(null, { store, value, matches });
 
     return (

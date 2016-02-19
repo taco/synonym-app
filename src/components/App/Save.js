@@ -9,7 +9,7 @@ import { Button } from '../Button';
 const Save = ({ form, store }) => {
 
     const text = 'Save';
-    const classType = 'primary';
+    const classType = 'success';
     const onClick = handleClick.bind(null, { form, store });
 
     return (
