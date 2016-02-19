@@ -16,15 +16,7 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
 
-    case CANCEL:
-    case LOAD_PAIRS:
-    case ADD_PAIR:
-    case UPDATE_PAIR:
-        return state.set('page', 'grid');
-
-    case START_CREATE:
-    case START_EDIT:
-        return state.set('page', 'create');
+    // When to mutate state
 
     default:
         return state;

@@ -21,9 +21,7 @@ Create.propTypes = {
 export const handleClick = (store,event) => {
     event.preventDefault();
 
-    store.dispatch(
-        create()
-    );
+    // create event
 };
 
 export default Create;

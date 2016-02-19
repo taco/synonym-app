@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { removeAsync } from '../../actions/pairs';
+import { remove } from '../../actions/pairs';
 
 import { Button } from '../Button';
 
@@ -22,9 +22,7 @@ Delete.propTypes = {
 export const handleClick = ({ store, index, value }, event) => {
     event.preventDefault();
 
-    store.dispatch(
-        removeAsync(index, value)
-    );
+    // handle event
 };
 
 export default Delete;

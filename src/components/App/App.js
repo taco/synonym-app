@@ -18,44 +18,29 @@ store.dispatch(
     loadAsync()
 );
 
+/**
+ * Switch for view state
+ * map view prop
+ */
+
 const App = ({ view, store }) => {
 
     let content;
     let buttons;
 
-    switch (view.get('page')) {
-    case 'create':
-        content = (
-            <div>
-                <Form store={ store } />
-            </div>
-        );
+    content = (
+        <div className="table-responsive" >
+            <Grid { ...{ store } } />
+        </div>
+    );
 
-        buttons = (
-            <div>
-                <Save store={ store } />
-                    { ' ' }
-                <Cancel store={ store } />
-            </div>
-        );
-        break;
-
-    case 'grid':
-    default:
-        content = (
-            <div className="table-responsive" >
-                <Grid { ...{ store } } />
-            </div>
-        );
-
-        buttons = (
-            <div>
-                <Create store={ store } />
-                { ' ' }
-                <Load store={ store } />
-            </div>
-        );
-    }
+    buttons = (
+        <div>
+            <Create store={ store } />
+            { ' ' }
+            <Load store={ store } />
+        </div>
+    );
 
     return (
         <div className="container">
@@ -67,14 +52,7 @@ const App = ({ view, store }) => {
 }
 
 App.propTypes = {
-    store: PropTypes.object.isRequired,
-    view: ImmutablePropTypes.map.isRequired
+    store: PropTypes.object.isRequired
 };
 
-export const mapStateToProps = state => {
-    return {
-        view: state[VIEW_REDUCER]
-    };
-};
-
-export default connect(mapStateToProps)(App);
+export default App

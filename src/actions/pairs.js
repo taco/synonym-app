@@ -28,26 +28,10 @@ export const load = data => {
     };
 };
 
-export const removeAsync = index => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch(remove(index));
-        }, asyncDelay);
-    };
-};
-
 export const remove = index => {
     return {
         type: REMOVE_PAIR,
         index
-    };
-};
-
-export const addAsync = (value, matches) => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch(add(value, matches));
-        }, asyncDelay);
     };
 };
 
@@ -56,14 +40,6 @@ export const add = (value, matches) => {
         type: ADD_PAIR,
         value,
         matches
-    };
-};
-
-export const updateAsync = (index, value, matches) => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch(upate(index, value, matches));
-        }, asyncDelay);
     };
 };
 

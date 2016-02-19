@@ -6,7 +6,7 @@ import {
     CANCEL
 } from '../constants/actionTypes';
 
-import { addAsync, updateAsync } from './pairs';
+import { add, update } from './pairs';
 
 export const cancel = () => {
     return {
@@ -15,49 +15,21 @@ export const cancel = () => {
 };
 
 export const edit = (index, value, matches) => {
-    return {
-        type: START_EDIT,
-        index,
-        value,
-        matches
-    };
+    // TODO
 };
 
 export const create = () => {
-    return {
-        type: START_CREATE
-    };
+    // TODO
 };
 
 export const updateKey = value => {
-    return {
-        type: UPDATE_KEY,
-        value
-    };
+    // TODO
 };
 
 export const updateValues = value => {
-    return {
-        type: UPDATE_VALUES,
-        value
-    };
+    // TODO
 };
 
 export const save = state => {
-    return dispatch => {
-        const index = state.get('index');
-        const value = state.get('key');
-        const matches = state.get('values');
-
-        if (typeof index === 'number') {
-            dispatch(
-                updateAsync(index, value, matches)
-            );
-        }
-        else {
-            dispatch(
-                addAsync(value, matches)
-            );
-        }
-    };
+    // TODO
 };

@@ -27,9 +27,7 @@ Edit.propTypes = {
 export const handleClick = ({ store, index, value, matches }, event) => {
     event.preventDefault();
 
-    store.dispatch(
-        edit(index, value, matches)
-    );
+    // handle event
 };
 
 export default Edit;

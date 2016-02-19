@@ -6,34 +6,11 @@ import { FORM_REDUCER } from '../../constants';
 
 import { Button } from '../Button';
 
-const Save = ({ form, store }) => {
-
-    const text = 'Save';
-    const classType = 'success';
-    const onClick = handleClick.bind(null, { form, store });
-
-    return (
-        <Button { ...{ text, classType, onClick } } />
-        );
-};
-
-Save.propTypes = {
-    form: ImmutablePropTypes.map.isRequired,
-    store: PropTypes.object.isRequired
-};
-
-export const handleClick = ({ form, store }, event) => {
-    event.preventDefault();
-
-    store.dispatch(
-        save(form)
-    );
-};
-
-export const mapStateToProps = state => {
-    return {
-        form: state[FORM_REDUCER]
-    };
-};
-
-export default connect(mapStateToProps)(Save);
+/**
+ * Create saveCmp (form,store)
+ * Proptypes (form,store)
+ * handleClick
+ *     dispatch event
+ * map for to state
+ * connect
+ */
