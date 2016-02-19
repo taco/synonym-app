@@ -1,12 +1,19 @@
 import React, { PropTypes } from 'react';
 
-const Header = () => {
+import Persist from './Persist';
+
+const Header = ({ store }) => {
     const title = 'Search Cinnamons';
 
     return (
-        <h1>
-            { title }
-        </h1>
+        <div>
+            <h1>
+                { title }
+            </h1>
+            <div className="text-right">
+                <Persist store={ store } />
+            </div>
+        </div>
         );
 };
 

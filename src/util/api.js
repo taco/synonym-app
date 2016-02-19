@@ -1,17 +1,40 @@
-import Client from './client';
-import config from '../../mozu.config.json';
+import xhr from 'xhr';
 
-
-console.log('client', config);
-
-const client = Client({context: config});
-
-export const get = () => {
-    client.getSynonymDefinitionCollection({})
-        .then(result => {
-            console.log('result', result);
-        })
-        .catch(error => {
-            console.log('error', error);
+export const GET = () => {
+    return new Promise((fulfill, reject) => {
+        xhr({
+            uri: '/api/synonyms',
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }, (error, res, body) => {
+            if (res.statusCode !== 200) {
+                reject(error);
+            }
+            else {
+                fulfill(JSON.parse(body));
+            }
         });
+    });
+};
+
+export const PUT = definitions => {
+    return new Promise((fulfill, reject) => {
+        xhr({
+            body: JSON.stringify({ definitions }),
+            uri: '/api/synonyms',
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }, (error, res, body) => {
+            if (res.statusCode !== 200) {
+                reject(error);
+            }
+            else {
+                fulfill(body);
+            }
+        });
+    });
 };

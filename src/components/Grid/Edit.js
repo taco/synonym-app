@@ -21,7 +21,7 @@ Edit.propTypes = {
         PropTypes.string.isRequired
     ).isRequired,
     store: PropTypes.object.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string
 };
 
 export const handleClick = ({ store, index, value, matches }, event) => {

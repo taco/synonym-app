@@ -16,7 +16,7 @@ const Delete = ({ store, index, value }) => {
 
 Delete.propTypes = {
     index: PropTypes.number.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string
 };
 
 export const handleClick = ({ store, index, value }, event) => {

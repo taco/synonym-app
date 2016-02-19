@@ -19,21 +19,32 @@ export default (state = initialState, action) => {
         return state.delete(action.index);
 
     case UPDATE_PAIR:
-        console.log('udpdate', action.index);
-        return state.set(action.index, fromJS({
-            key: action.value,
-            synonyms: matchesToArray(action.matches)
-        }));
+        return state.set(
+            action.index,
+            getPair(action.value, action.matches)
+        );
 
     case ADD_PAIR:
-        return state.push(fromJS({
-            key: action.value,
-            synonyms: matchesToArray(action.matches)
-        }));
+        return state.push(
+            getPair(action.value, action.matches)
+        );
 
     default:
         return state;
     }
+};
+
+export const getPair = (value, matches) => {
+    const pair = {
+        synonyms: matchesToArray(matches),
+        unsaved: true
+    };
+
+    if (value.trim()) {
+        pair.key = value.trim();
+    }
+
+    return fromJS(pair);
 };
 
 export const matchesToArray = matches => {

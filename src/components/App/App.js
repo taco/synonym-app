@@ -59,7 +59,7 @@ const App = ({ view, store }) => {
 
     return (
         <div className="container">
-            <Header />
+            <Header store={ store } />
             { content }
             { buttons }
             <p className="text-right">

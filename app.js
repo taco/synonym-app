@@ -32,7 +32,6 @@ app.use('/css', express.static(path.join(__dirname, 'assets/css')));
 app.get('/api/synonyms', function(req, res) {
     api.get()
         .then(result => {
-            console.log('result', JSON.stringify(result));
             res.json({
                 definitions: result.synonymDefinitions
             });

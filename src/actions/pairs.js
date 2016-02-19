@@ -1,3 +1,5 @@
+import { GET, PUT } from '../util/api';
+
 import {
     LOAD_PAIRS,
     REMOVE_PAIR,
@@ -20,9 +22,14 @@ const asyncDelay = 1;
 
 export const loadAsync = () => {
     return dispatch => {
-        setTimeout(() => {
-            dispatch(load(defaultData));
-        }, asyncDelay);
+        GET()
+            .then(result => {
+                console.log('result', result)
+                dispatch(load(result.definitions));
+            })
+            .catch(error => {
+                console.warn('failed to make API GET call', error);
+            });
     };
 };
 
@@ -78,5 +85,17 @@ export const upate = (index, value, matches) => {
         index,
         value,
         matches
+    };
+};
+
+export const persistAsync = pairs => {
+    return dispatch => {
+        PUT(pairs.toJS())
+            .then(() => {
+                dispatch(loadAsync());
+            })
+            .catch(error => {
+                console.warn('failed to make API persist call', error);
+            });
     };
 };

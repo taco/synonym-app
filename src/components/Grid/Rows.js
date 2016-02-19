@@ -6,10 +6,8 @@ import Row from './Row';
 export const Rows = ({ store, pairs }) => {
     const rows = pairs.map((pair, index) => {
         const key = `row-${index}`;
-        const value = pair.get('key');
-        const matches = pair.get('synonyms');
         return (
-            <Row { ...{ store, matches, value, index, key } } />
+            <Row { ...{ store, pair, index, key } } />
             );
     }).toSeq();
 
