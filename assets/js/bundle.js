@@ -19871,17 +19871,7 @@
 	        { className: 'container' },
 	        _react2.default.createElement(_Header2.default, { store: store }),
 	        content,
-	        buttons,
-	        _react2.default.createElement(
-	            'p',
-	            { className: 'text-right' },
-	            'Source: ',
-	            _react2.default.createElement(
-	                'a',
-	                { href: 'https://github.com/taco/synonym-app' },
-	                'https://github.com/taco/synonym-app'
-	            )
-	        )
+	        buttons
 	    );
 	};
 
@@ -26465,9 +26455,9 @@
 	    var pairs = _ref.pairs;
 
 
-	    var valueTitle = 'Key';
+	    var valueTitle = 'Key Word';
 	    var matchTitle = 'Synonyms';
-	    var className = 'table table-striped';
+	    var className = 'table table-condensed';
 
 	    return _react2.default.createElement(
 	        'table',
@@ -26667,7 +26657,17 @@
 	        );
 	    });
 
-	    var className = unsaved ? 'warning' : '';
+	    var className = unsaved ? 'active' : '';
+
+	    var code = undefined;
+
+	    if (value) {
+	        code = _react2.default.createElement(
+	            'code',
+	            null,
+	            value
+	        );
+	    }
 
 	    return _react2.default.createElement(
 	        'tr',
@@ -26675,11 +26675,7 @@
 	        _react2.default.createElement(
 	            'td',
 	            null,
-	            _react2.default.createElement(
-	                'code',
-	                null,
-	                value
-	            )
+	            code
 	        ),
 	        _react2.default.createElement(
 	            'td',
@@ -27594,7 +27590,7 @@
 	var Header = function Header(_ref) {
 	    var store = _ref.store;
 
-	    var title = 'Search Cinnamons';
+	    var title = 'Search Synonyms';
 
 	    return _react2.default.createElement(
 	        'div',
@@ -27975,10 +27971,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactImmutableProptypes = __webpack_require__(164);
-
-	var _reactImmutableProptypes2 = _interopRequireDefault(_reactImmutableProptypes);
-
 	var _form = __webpack_require__(205);
 
 	var _reactRedux = __webpack_require__(166);
@@ -27996,6 +27988,7 @@
 	        className: 'form-control',
 	        defaultValue: defaultValue,
 	        onChange: handleChange.bind(null, store),
+	        placeholder: 'Single phrase',
 	        type: 'text'
 	    };
 
@@ -28005,9 +27998,14 @@
 	        _react2.default.createElement(
 	            'label',
 	            null,
-	            'Key'
+	            'Key Word'
 	        ),
-	        _react2.default.createElement('input', inputProps)
+	        _react2.default.createElement('input', inputProps),
+	        _react2.default.createElement(
+	            'p',
+	            { className: 'help-block' },
+	            'Leave key blank synonym group binding.'
+	        )
 	    );
 	};
 
@@ -28047,10 +28045,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactImmutableProptypes = __webpack_require__(164);
-
-	var _reactImmutableProptypes2 = _interopRequireDefault(_reactImmutableProptypes);
-
 	var _form = __webpack_require__(205);
 
 	var _reactRedux = __webpack_require__(166);
@@ -28064,7 +28058,12 @@
 	    var store = _ref.store;
 
 
-	    var onChange = handleChange.bind(null, store);
+	    var textAreaProps = {
+	        className: 'form-control',
+	        defaultValue: defaultValue,
+	        onChange: handleChange.bind(null, store),
+	        placeholder: 'phrase one, phrase two, more, words'
+	    };
 
 	    return _react2.default.createElement(
 	        'div',
@@ -28072,9 +28071,14 @@
 	        _react2.default.createElement(
 	            'label',
 	            null,
-	            'Values'
+	            'Synonyms'
 	        ),
-	        _react2.default.createElement('textarea', { className: 'form-control', defaultValue: defaultValue, onChange: onChange })
+	        _react2.default.createElement('textarea', textAreaProps),
+	        _react2.default.createElement(
+	            'p',
+	            { className: 'help-block' },
+	            'Comma delimited phrases to match to key.'
+	        )
 	    );
 	};
 
@@ -28277,7 +28281,7 @@
 	        unsaved: true
 	    };
 
-	    if (value.trim()) {
+	    if (value && value.trim()) {
 	        pair.key = value.trim();
 	    }
 
