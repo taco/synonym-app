@@ -27,7 +27,7 @@ const KeyField = ({ defaultValue, store }) => {
 };
 
 KeyField.propTypes = {
-    defaultValue: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string,
     store: PropTypes.object.isRequired
 };
 

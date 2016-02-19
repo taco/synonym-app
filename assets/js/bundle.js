@@ -28010,7 +28010,7 @@
 	};
 
 	KeyField.propTypes = {
-	    defaultValue: _react.PropTypes.string.isRequired,
+	    defaultValue: _react.PropTypes.string,
 	    store: _react.PropTypes.object.isRequired
 	};
 
@@ -28644,7 +28644,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #fafafa;\n}\n", ""]);
+	exports.push([module.id, "td {\n  vertical-align: middle !important;\n}\n", ""]);
 
 	// exports
 
